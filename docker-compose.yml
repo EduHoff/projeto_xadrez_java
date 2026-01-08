@@ -1,0 +1,6 @@
+services:
+  xadrez:
+    build: .
+    volumes:
+      - ./src:/app/src
+    command: sh -c "javac -d bin $(find src -name '*.java') && java -cp bin application.Program"

@@ -1,14 +1,15 @@
 package application;
 
-import boardgame.Position;
+import boardgame.Board;
+
 
 public class Program {
 
 	public static void main(String[] args) {
 
-		Position pos = new Position(0, 0);
+		Board board = new Board(0, 0);
 
-		System.out.println(pos);
+		System.out.println(board.getRows());
 		
 	}
 

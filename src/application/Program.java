@@ -1,26 +1,35 @@
 package application;
 
+import java.util.Scanner;
+
 import chess.ChessMatch;
+import chess.ChessPiece;
+import chess.ChessPosition;
 
 public class Program {
 
 	public static void main(String[] args) {
 
+		Scanner sc = new Scanner(System.in);
 		ChessMatch chessMatch = new ChessMatch();
-		UI.printBoard(chessMatch.getPieces());
+
+		while (true) {
+			UI.printBoard(chessMatch.getPieces());
+			System.out.println();
+			System.out.print("Source: ");
+			ChessPosition source = UI.readChessPosition(sc);
+
+			System.out.println();
+			System.out.print("Target: ");
+			ChessPosition target = UI.readChessPosition(sc);
+
+			ChessPiece capturedPiece = chessMatch.perfomChessMove(source, target);
+		}
+		
+
+		//sc.close();
 
 
-		/* 
-		TESTES feito mudando os métodos de protect para public
-		Position testePosition = new Position(4, 7);
-		System.out.println("Posição do sistema: " + testePosition);
-
-		ChessPosition testePositionChess = new ChessPosition('a', 7);
-		testePositionChess =  ChessPosition.fromPosition(testePosition);
-		System.out.println("Posição do xadrez: " + testePositionChess);
-
-		testePosition = testePositionChess.toPosition();
-		System.out.println("Posição do sistema pós conversão: " + testePosition);
-		*/
+		
 	}
 }
